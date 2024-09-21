@@ -1,15 +1,14 @@
 "use client";
 import Sidebar from "@/components/Sidebar";
-import React, { useState, type ReactNode } from "react";
+import React, { type ReactNode } from "react";
 
 export default function DefaultLayout({ children }: { children: ReactNode }) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="flex">
-      <div className="relative flex flex-1 flex-col mx-16">
+      <div className="flex flex-col h-full">
         <Sidebar />
-        <main>
-          <div className="ml-16 px-12 py-8">HELLO!</div>
+        <main className="h-full">
+          <div className="ml-12 px-16 py-8 md:ml-32">HELLO!</div>
         </main>
       </div>
     </div>
