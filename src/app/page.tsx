@@ -1,12 +1,13 @@
 "use client";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Loading from "./loading";
 import { fetchMovies } from "@/api/movies";
 import type { Movie } from "@/types";
 import Image from "next/image";
 import { usePagination } from "@/hooks/usePagination";
+import { Pagination } from "@/components";
 
-export default async function MainPage() {
+export default function MainPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
   useEffect(() => {
     try {
@@ -18,8 +19,8 @@ export default async function MainPage() {
       console.log(error);
     }
   }, []);
-  console.log(movies);
   const { pageData, page, totalPages, setPage } = usePagination<Movie>(movies);
+
   return (
     <>
       {movies.length > 0 ? (
@@ -66,6 +67,7 @@ export default async function MainPage() {
               </div>
             ))}
           </div>
+          <Pagination page={page} totalPages={totalPages} setPage={setPage} />
         </>
       ) : (
         <Loading />
