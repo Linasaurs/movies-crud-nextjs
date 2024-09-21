@@ -1,5 +1,12 @@
 {
-  "cSpell.words": ["classname", "clsx", "nextjs", "tailwindcss"],
+  "cSpell.words": [
+    "classname",
+    "clsx",
+    "loremflickr",
+    "nextjs",
+    "tailwindcss",
+    "tanstack"
+  ],
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {

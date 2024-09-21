@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import SidebarItem from "@/components/Sidebar/SidebarItem";
 import {
@@ -17,7 +18,7 @@ const menuItems: SideBarItem[] = [
   {
     icon: <AddCircleOutlineOutlined />,
     label: "Create",
-    route: "/add",
+    route: "/create",
   },
   {
     icon: <PendingOutlined />,
@@ -31,7 +32,7 @@ const menuItems: SideBarItem[] = [
   },
 ];
 
-const Sidebar = () => {
+export const Sidebar = () => {
   return (
     <aside className="fixed left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-secondary">
       <div className="no-scrollbar flex flex-col overflow-y-auto">
@@ -46,5 +47,3 @@ const Sidebar = () => {
     </aside>
   );
 };
-
-export default Sidebar;

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Sidebar, ReactQueryProvider } from "@/components";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -28,7 +29,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="flex flex-col h-full">
+          <Sidebar />
+          <ReactQueryProvider>
+            <main className="h-full">
+              <div className="ml-12 px-16 py-8 md:ml-32">{children}</div>
+            </main>
+          </ReactQueryProvider>
+        </div>
       </body>
     </html>
   );
