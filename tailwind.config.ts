@@ -9,8 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#FFFFFF",
+        transparent: "transparent",
+        white: "#FFFFFF",
+        black: "#272727",
+        body: "#272727",
+        primary: "#5680E9",
+        secondary: "#272727",
+        success: "#14A76C",
+        danger: "#FFE400",
+        warning: "#FF652F",
+      },
+      fontSize: {
+        "title-lg": ["36px", "40px"],
+        "title-md": ["24px", "32px"],
+        "title-sm": ["18px", "28px"],
       },
     },
   },
