@@ -1,0 +1,10 @@
+{
+  "cSpell.words": ["classname", "clsx", "nextjs", "tailwindcss"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript", "typescript"],
+  "eslint.nodePath": "./node_modules/eslint"
+}

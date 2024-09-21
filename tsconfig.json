@@ -12,6 +12,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "target": "ESNext",
+    "useUnknownInCatchVariables": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true,
+    "declaration": true,
+    "baseUrl": ".",
+    "typeRoots": ["src/types", "node_modules/@types"],
     "plugins": [
       {
         "name": "next"

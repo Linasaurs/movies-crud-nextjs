@@ -1,3 +1,104 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "airbnb-base",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": false,
+        "endOfLine": "auto",
+        "semi": false,
+        "jsxSingleQuote": false,
+        "printWidth": 120,
+        "useTabs": true
+      }
+    ]
+  },
+  "settings": {
+    "tailwindcss": {
+      "callees": ["classnames", "clsx", "ctl", "cva", "tv", "cn"]
+    }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx", "**/*.mts"],
+      "plugins": [
+        "@typescript-eslint",
+        "unused-imports",
+        "tailwindcss",
+        "simple-import-sort"
+      ],
+      "extends": [
+        "plugin:tailwindcss/recommended",
+        "airbnb",
+        "airbnb-typescript",
+        "next/core-web-vitals",
+        "plugin:prettier/recommended"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      // Prevent conflicts between Prettier and Airbnb ESLint rules
+      "rules": {
+        "prettier/prettier": [
+          "error",
+          {
+            "singleQuote": false,
+            "endOfLine": "auto",
+            "semi": true,
+            "trailingComma": "es5"
+          }
+        ],
+        "tailwindcss/no-custom-classname": ["off"],
+        "import/no-extraneous-dependencies": "warn",
+        "no-param-reassign": "warn",
+        "consistent-return": "off",
+        "no-empty-pattern": "off",
+        "no-use-before-define": "error",
+        "no-shadow": [
+          "error",
+          {
+            "builtinGlobals": false,
+            "hoist": "all",
+            "allow": [],
+            "ignoreOnInitialization": false
+          }
+        ],
+        "react/jsx-no-constructed-context-values": "off",
+        "import/extensions": "off",
+        "react/function-component-definition": "off",
+        "react/destructuring-assignment": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/no-unstable-nested-components": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "@typescript-eslint/consistent-type-imports": "error",
+        "no-restricted-syntax": ["error", "WithStatement"],
+        "import/prefer-default-export": "warn",
+        "simple-import-sort/imports": "warn",
+        "simple-import-sort/exports": "warn",
+        // Disable import order rule to avoid conflict with simple-import-sort
+        "import/order": "off",
+        // Disable unused variables rule for TypeScript since its handled by unused imports
+        "@typescript-eslint/no-unused-vars": "off",
+        "unused-imports/no-unused-imports": "error",
+        "no-unused-vars": "off",
+        "@typescript-eslint/naming-convention": "warn",
+        "unused-imports/no-unused-vars": [
+          "warn",
+          {
+            "vars": "all",
+            "varsIgnorePattern": "^_",
+            "args": "all",
+            "argsIgnorePattern": "^_"
+          }
+        ]
+      }
+    }
+  ]
 }
