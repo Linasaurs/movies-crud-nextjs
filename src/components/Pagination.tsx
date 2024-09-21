@@ -13,7 +13,7 @@ export const Pagination = ({ page, totalPages, setPage }: Props) => {
         }}
         className={`inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 text-sm font-medium hover:bg-gray-50 ${page <= 0 ? "bg-gray-100 hover:bg-gray-100" : ""}`}
       >
-        <span>Previous</span>
+        <span>{"←"}</span>
       </button>
       {[...Array(totalPages)].map((_, index) => (
         <button
@@ -32,9 +32,9 @@ export const Pagination = ({ page, totalPages, setPage }: Props) => {
         onClick={() => {
           setPage(page + 1);
         }}
-        className={`inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 text-sm font-medium hover:bg-gray-50 ${page >= totalPages ? "bg-gray-100 hover:bg-gray-100" : ""}`}
+        className={`inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 text-sm font-medium hover:bg-gray-50 ${page >= totalPages - 1 ? "bg-gray-100 hover:bg-gray-100" : ""}`}
       >
-        <span>Next</span>
+        <span>{"→"}</span>
       </button>
     </nav>
   );

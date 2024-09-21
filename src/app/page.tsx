@@ -35,7 +35,7 @@ export default function MainPage() {
                 <h5 className="text-sm font-medium uppercase">Title</h5>
               </div>
               <div className="p-2.5">
-                <h5 className="text-sm font-medium uppercase hidden lg:block">
+                <h5 className="text-sm font-medium uppercase hidden md:block">
                   Description
                 </h5>
               </div>

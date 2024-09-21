@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 
 export function usePagination<T extends any>(data: T[], pageSize: number = 10) {
-    const totalPages = useMemo(() => Math.floor(data.length / pageSize), [
+    const totalPages = useMemo(() => Math.ceil(data.length / pageSize), [
         pageSize,
         data.length
     ]);
