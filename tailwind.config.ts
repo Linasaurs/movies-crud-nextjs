@@ -17,8 +17,8 @@ const config: Config = {
         primary: "#5680E9",
         secondary: "#272727",
         success: "#14A76C",
-        danger: "#FFE400",
-        warning: "#FF652F",
+        danger: "#FF652F",
+        warning: "#FFE400",
       },
       fontSize: {
         "title-lg": ["36px", "40px"],
