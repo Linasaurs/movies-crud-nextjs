@@ -1,11 +1,11 @@
-# [https://movies-crud-nextjs.vercel.app/](Live Demo hosted on Vercel)
+# [https://movies-crud-nextjs.vercel.app] (Live Demo hosted on Vercel)
 
 ## How to run?
 
-1- Download the Repo
-2- Open terminal in the root folder
-3- Run the following command to install dependencies `bun install`
-4- Run the following command to run in development mode `bun run dev`
+1- Download the Repo</br>
+2- Open terminal in the root folder</br>
+3- Run the following command to install dependencies `bun install`</br>
+4- Run the following command to run in development mode `bun run dev`</br>
 
 ## Additional Features for a better coding experience
 
