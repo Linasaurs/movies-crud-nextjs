@@ -1,5 +1,88 @@
-import React, { type ReactNode } from "react";
+"use client";
 
-export default function DefaultLayout({ children }: { children: ReactNode }) {
-  return <div className="flex">create</div>;
-}
+import { useState, type FormEvent } from "react";
+import { createMovie } from "@/api/movies";
+import Loading from "../loading";
+
+const FormElements = () => {
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsLoading(true);
+    try {
+      await createMovie(name, description);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  return (
+    <form onSubmit={handleSubmit}>
+      <h4 className="mb-6 text-xl font-semibold text-black">Create Movie</h4>
+      <div>
+        <div className="flex flex-col gap-5.5 ">
+          <div className="mb-2">
+            <label className="mb-3 block text-sm font-medium">Name</label>
+            <input
+              required
+              type="text"
+              value={name}
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value)}
+              pattern="(.|\s)*\S(.|\s)*"
+              onInvalid={(e) =>
+                (e.target as HTMLInputElement).setCustomValidity(
+                  "Enter a valid and non-empty name."
+                )
+              }
+              onInput={(e) =>
+                (e.target as HTMLInputElement).setCustomValidity("")
+              }
+              className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 outline-none lg:w-1/2 focus:border-primary active:border-primary"
+            />
+          </div>
+          <div className="mb-2">
+            <label className="mb-3 block text-sm font-medium text-black">
+              Description
+            </label>
+            <input
+              required
+              type="textarea"
+              value={description}
+              placeholder="Description..."
+              onChange={(e) => setDescription(e.target.value)}
+              pattern="(.|\s)*\S(.|\s)*"
+              onInvalid={(e) =>
+                (e.target as HTMLInputElement).setCustomValidity(
+                  "Enter a valid and non-empty name."
+                )
+              }
+              onInput={(e) =>
+                (e.target as HTMLInputElement).setCustomValidity("")
+              }
+              className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 outline-none lg:w-1/2 focus:border-primary active:border-primary"
+            />
+          </div>
+          <div className="flex w-full lg:w-1/2 justify-end ">
+            <button
+              className=" bg-primary py-3 px-5 text-white rounded-md w-full lg:w-fit disabled:opacity-50"
+              type="submit"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <div className="inline-block h-4 w-4 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></div>
+              ) : (
+                "Submit"
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  );
+};
+
+export default FormElements;

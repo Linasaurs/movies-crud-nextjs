@@ -9,3 +9,11 @@ export async function deleteMovie(id: number) {
     const res = await axios.delete(process.env.API_URL + `/movie/${id}`);
     return res
 }
+
+export async function createMovie(name: string, description: string) {
+    const res = await axios.post(process.env.API_URL + `/movie`, {
+        name: name,
+        description: description,
+    });
+    return res;
+}
