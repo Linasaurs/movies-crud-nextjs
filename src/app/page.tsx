@@ -9,6 +9,17 @@ import { Pagination } from "@/components";
 
 export default function MainPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [searchCriteria, setSearchCriteria] = useState<string>("");
+  const [currentMovies, setCurrentMovies] = useState<Movie[]>([]);
+  useEffect(() => {
+    let filteredMovies = movies;
+    if (searchCriteria.length > 0) {
+      filteredMovies = movies.filter((movie) =>
+        movie.name.toLowerCase().includes(searchCriteria.toLowerCase())
+      );
+    }
+    setCurrentMovies(filteredMovies);
+  }, [movies, searchCriteria]);
   useEffect(() => {
     try {
       (async () => {
@@ -19,13 +30,24 @@ export default function MainPage() {
       console.log(error);
     }
   }, []);
-  const { pageData, page, totalPages, setPage } = usePagination<Movie>(movies);
+  const { pageData, page, totalPages, setPage } =
+    usePagination<Movie>(currentMovies);
 
   return (
     <>
       {movies.length > 0 ? (
         <>
           <h4 className="mb-6 text-xl font-semibold text-black">Movies</h4>
+          <div className="mb-2">
+            <input
+              required
+              value={searchCriteria}
+              placeholder="Search by name..."
+              onChange={(e) => setSearchCriteria(e.target.value)}
+              pattern="(.|\s)*\S(.|\s)*"
+              className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-2 outline-none text-sm focus:border-primary active:border-primary"
+            />
+          </div>
           <div className="flex flex-col w-full ">
             <div className="grid grid-cols-2 border-solid bg-primary text-white  md:grid-cols-3">
               <div className="p-2.5">
