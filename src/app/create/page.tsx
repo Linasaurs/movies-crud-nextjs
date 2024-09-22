@@ -2,9 +2,8 @@
 
 import { useState, type FormEvent } from "react";
 import { createMovie } from "@/api/movies";
-import Loading from "../loading";
 
-const FormElements = () => {
+export default function Create() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -83,6 +82,4 @@ const FormElements = () => {
       </div>
     </form>
   );
-};
-
-export default FormElements;
+}

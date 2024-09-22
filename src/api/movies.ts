@@ -17,3 +17,11 @@ export async function createMovie(name: string, description: string) {
     });
     return res;
 }
+
+export async function updateMovie(name: string, description: string, id: number) {
+    const res = await axios.put(process.env.API_URL + `/movie/${id}`, {
+        name: name,
+        description: description,
+    });
+    return res;
+}
