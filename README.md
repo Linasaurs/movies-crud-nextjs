@@ -1,4 +1,4 @@
- ### [Live Demo hosted on Vercel](https://movies-crud-nextjs.vercel.app)
+ ### [Live Demo](https://movies-crud-nextjs.vercel.app)
 
 ## How to run?
 
