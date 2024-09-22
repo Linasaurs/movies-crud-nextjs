@@ -1,4 +1,4 @@
-# [https://movies-crud-nextjs.vercel.app] (Live Demo hosted on Vercel)
+ ### [Live Demo hosted on Vercel](https://movies-crud-nextjs.vercel.app)
 
 ## How to run?
 
@@ -13,6 +13,6 @@ When first opening VScode you will be prompted with a list of recommended extens
 
 ## Lighthouse Analysis
 
-![Lighthouse Analysis](https://raw.githubusercontent.com/Linasaurs/movies-crud-nextjs/refs/heads/main/image.png)
+![Lighthouse Analysis](https://raw.githubusercontent.com/Linasaurs/movies-crud-nextjs/refs/heads/main/image.png) </br>
 The biggest issue in accessibility being the contrast between the low contrast of the primary color picked in the project's theme in contrast to the common black and white that was used across the website
 ![Accessibility Analysis](https://github.com/Linasaurs/movies-crud-nextjs/blob/main/accessibility.png?raw=true)
